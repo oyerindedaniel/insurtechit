@@ -10,7 +10,7 @@ export default async function Layout({ children }: LayoutProps) {
     <main className="min-h-screen relative  max-w-[1500px] mx-auto w-full h-full">
       <SiteHeader items={MENU_ITEMS} />
       <SiteSidebar items={MENU_ITEMS} />
-      <div className="pt-[80px]">{children}</div>
+      <div>{children}</div>
       <SiteFooter />
     </main>
   );

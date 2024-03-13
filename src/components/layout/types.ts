@@ -16,9 +16,3 @@ export type FooterSection = {
     mail: string;
   };
 };
-
-export type SocialMedia = {
-  name: string;
-  link: string;
-  icon: React.FunctionComponent;
-};

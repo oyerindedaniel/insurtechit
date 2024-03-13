@@ -31,12 +31,12 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
   };
 
   return (
-    <header className="px-6 lg:px-10 py-6 fixed w-full z-30 bg-white shadow-md">
+    <header className="px-6 lg:px-12 py-4 fixed w-full z-30 bg-transparent">
       <nav className="flex items-center justify-between">
         <Link href="/">
           <Image
-            src="/artefix-logo.svg"
-            alt="Artefix"
+            src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166155/folder/insurtechit-50.png"
+            alt="Insurtechit"
             width={100}
             height={100}
             priority
@@ -54,21 +54,21 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
           variant="unstyled"
           onClick={handleToogleSideBarChange}
         >
-          {isSidebarOpen ? <Close /> : <Hamburger />}
+          {isSidebarOpen ? <p>Close</p> : <p>Open</p>}
         </Button>
-        <ul className="space-x-10 hidden md:flex md:items-center">
+        <ul className="space-x-10 text-sm hidden md:flex md:items-center">
           {items.map((item, index) => (
             <li
               key={index}
               className={cn(
-                "text-black cursor-pointer px-3 py-1 rounded-lg hover:bg-[#cfdfee] rounded-b-none relative",
-                pathname === item.link ? "bg-[#cfdfee] font-normal" : ""
+                "text-white cursor-pointer relative",
+                pathname === item.link ? "font-normal" : ""
               )}
             >
               <Link href={item.link}>{item.name}</Link>
               {pathname === item.link ? (
                 <motion.div
-                  className="bg-[#aecae2] absolute -bottom-1 left-0 right-0 h-1"
+                  className="absolute -bottom-1 left-0 right-0 h-[2px]"
                   layoutId="underline"
                 />
               ) : null}
