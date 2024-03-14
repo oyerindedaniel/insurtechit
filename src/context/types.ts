@@ -3,6 +3,7 @@
 export interface ContextState {
   UI: {
     isSidebarOpen: boolean;
+    navbarColor: string;
   };
 }
 
@@ -14,6 +15,10 @@ export type ContextAction =
   | {
       type: "SET_SIDEBAR";
       payload: boolean;
+    }
+  | {
+      type: "SET_NAVBAR-COLOR";
+      payload: { color: string };
     };
 
 export type ContextDispatch = (action: ContextAction) => void;

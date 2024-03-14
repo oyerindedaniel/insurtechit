@@ -1,37 +1,100 @@
-"use client";
+'use client';
 
-import { Arrow } from "@/assets";
-import Offerings from "@/components/offerings";
-import SectionContainer from "@/components/section-container";
-import Stats from "@/components/stats";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button, buttonVariants } from "@/components/ui/button";
-import Values from "@/components/values";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { CoreValues, OurStats, Partners } from "../constants";
+import { Arrow } from '@/assets';
+import Offerings from '@/components/offerings';
+import SectionContainer from '@/components/section-container';
+import Stats from '@/components/stats';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Button, buttonVariants } from '@/components/ui/button';
+import Values from '@/components/values';
+import { Colors } from '@/config';
+import { useGlobalStoreContext } from '@/context';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { CoreValues, OurStats, Partners } from '../constants';
 
 export default function Home() {
-  const row =
-    "col-start-1 col-end-5 col-start-5 col-end-9 col-start-9 col-end-13 row-start-1 row-end-7 row-start-7 row-end-13";
+  const { state, dispatch } = useGlobalStoreContext();
+
+  const sectionRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
+
+  const [trackNavBarIntersection, setTrackNavBarIntersection] = useState({
+    header: false
+  });
+
+  const NAVBAR_HEIGHT = '70.28';
+
+  useEffect(() => {
+    if (Object.keys(trackNavBarIntersection).length !== 0) {
+      const arrOfIntersectionIdKeys: string[] = Object.keys(trackNavBarIntersection);
+      const arrOfIntersectionIdValues: boolean[] = Object.values(trackNavBarIntersection);
+      const firstTrueIndex: number = arrOfIntersectionIdValues.indexOf(true);
+      const firstTrueIndexIdKey: string = arrOfIntersectionIdKeys[firstTrueIndex];
+
+      if (!firstTrueIndexIdKey) return;
+
+      const color = Colors[firstTrueIndexIdKey];
+
+      dispatch({
+        type: 'SET_NAVBAR-COLOR',
+        payload: { color }
+      });
+    }
+  }, [dispatch, trackNavBarIntersection]);
+
+  const obsCallback = useCallback((entries: any) => {
+    entries.forEach((entry: any) => {
+      setTrackNavBarIntersection((prevTrackNavBarIntersection) => {
+        return {
+          ...prevTrackNavBarIntersection,
+          [entry.target.id]: entry.isIntersecting
+        };
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(obsCallback, {
+      root: null,
+      threshold: [0],
+      rootMargin: `-${NAVBAR_HEIGHT}px`
+    });
+    if (sectionRefs?.current) {
+      sectionRefs.current.forEach((section: any) => {
+        observer.observe(section);
+      });
+    }
+
+    return () => observer.disconnect();
+  }, [obsCallback]);
+
+  // [font-size:_clamp(45px,4.5vw,60px)]
+
+  const grid =
+    'sm:col-start-1 sm:col-end-7 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-5 sm:row-start-5 sm:row-end-9 lg:col-start-1 lg:col-end-5 lg:col-start-5 lg:col-end-9 lg:col-start-9 lg:col-end-13 lg:row-start-1 lg:row-end-7 lg:row-start-7 lg:row-end-13';
 
   return (
     <main className="overflow-hidden">
-      <SectionContainer className="bg-brand text-white pt-[125px] pb-[100px] min-h-screen bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-top">
-        <div className="flex justify-between items-center">
-          <div className="w-2/4">
-            <h1 className="text-6xl leading-[1.1] font-poppins font-medium mb-4">
+      <SectionContainer
+        id="section-1"
+        ref={(element) => sectionRefs?.current.push(element!)}
+        className="bg-brand text-white pt-[125px] pb-[100px] bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-top"
+      >
+        <div className="flex justify-between items-center flex-col md:flex-row">
+          <div className="w-full md:w-2/4 mb-12 md:mb-0">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] text-center md:text-left font-poppins font-medium mb-4">
               Digital Technology Platform for Emerging Markets.
             </h1>
-            <p className="text-lg mb-8">
-              We provide you with a hassle-free, reliable, and customized
-              digital technology platform to deliver value to your customers.
+            <p className="text-md sm:text-lg mb-8 text-center md:text-left">
+              We provide you with a hassle-free, reliable, and customized digital technology
+              platform to deliver value to your customers.
             </p>
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-4 sm:gap-6 items-center justify-center flex-col sm:flex-row md:justify-start">
               <Button
                 type="button"
                 size="lg"
-                className="bg-white text-brand text-base"
+                className="bg-white text-brand text-base w-full sm:w-fit"
                 rightElement={<Arrow className="ml-2 w-4 h-4" />}
               >
                 Request for Demo
@@ -39,13 +102,13 @@ export default function Home() {
               <Button
                 type="button"
                 size="lg"
-                className="text-base backdrop-blur-[2px] bg-[#DFEFFE]/15"
+                className="text-base w-full sm:w-fit backdrop-blur-[2px] bg-[#DFEFFE]/15"
               >
                 Contact Sales
               </Button>
             </div>
           </div>
-          <div className="w-[45%] z-0 relative">
+          <div className="w-full md:w-[45%] z-0 relative">
             <Image
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166156/folder/insurtechit-48.png"
               alt=""
@@ -61,11 +124,15 @@ export default function Home() {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer className="py-20">
-        <h2 className="text-5xl text-center font-poppins mb-8">
+      <SectionContainer
+        id="section-2"
+        ref={(element) => sectionRefs?.current.push(element!)}
+        className="my-20"
+      >
+        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-8">
           Our Strategic Partners
         </h2>
-        <div className="flex justify-between items-center gap-4 max-w-[1000px] mx-auto w-full">
+        <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full">
           {Partners.map((partner) => (
             <Image
               key={partner?.alt}
@@ -77,32 +144,35 @@ export default function Home() {
           ))}
         </div>
       </SectionContainer>
-      <SectionContainer className="py-20">
+      <SectionContainer className="my-20 ">
         <p className="mb-1 text-base text-brand text-center">
           Our achievement in the journey depicted in numbers
         </p>
-        <h2 className="text-5xl text-center font-poppins mb-8">
+        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-8">
           Some count that matters
         </h2>
-        <div className="bg-brand px-8 py-20 rounded-xl text-white flex items-center justify-between gap-6 bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center">
+        <div
+          id="section-3"
+          ref={(element) => sectionRefs?.current.push(element!)}
+          className="bg-brand flex-wrap lg:flex-nowrap px-4 lg:px-8 py-14 min-h-[300px] rounded-xl text-white flex items-center justify-between gap-6 bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center"
+        >
           {OurStats.map((stat, idx) => (
-            <Stats
-              key={idx}
-              prefix={stat.prefix}
-              about={stat.about}
-              figure={stat.figure}
-            />
+            <Stats key={idx} prefix={stat.prefix} about={stat.about} figure={stat.figure} />
           ))}
         </div>
       </SectionContainer>
-      <SectionContainer className="py-20">
+      <SectionContainer
+        id="section-4"
+        ref={(element) => sectionRefs?.current.push(element!)}
+        className="my-20"
+      >
         <p className="mb-1 text-base text-brand text-center">About Us</p>
-        <h2 className="text-5xl text-center font-poppins mb-12">
-          Enabling Financial Institutions and other <br /> players to reach the
-          Banked and Unbanked
+        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-12">
+          Enabling Financial Institutions and other <br className="hidden lg:block" /> players to
+          reach the Banked and Unbanked
         </h2>
-        <div className="flex items-center justify-between gap-8">
-          <div className="w-2/4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="w-full lg:w-2/4">
             <Image
               className="mb-6"
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166151/folder/insurtechit-26.png"
@@ -110,67 +180,66 @@ export default function Home() {
               width={75}
               height={75}
             />
-            <h3 className="text-4xl font-medium font-poppins mb-4">
-              Our Story
-            </h3>
+            <h3 className="text-3xl lg:text-4xl font-medium font-poppins mb-4">Our Story</h3>
             <div className="text-lg">
               <p className="mb-6">
-                We understand that to deliver value continuously and to support
-                the customers – financial institutions and emerging customers,
-                we must ask the customers, “How can we help them get their job
-                done?” <br /> With this question in mind, we set out to provide
-                and enable financial transactions for emerging customers and
-                address their pain points by leveraging technology as an
-                enabler.
+                We understand that to deliver value continuously and to support the customers –
+                financial institutions and emerging customers, we must ask the customers, “How can
+                we help them get their job done?” <br /> With this question in mind, we set out to
+                provide and enable financial transactions for emerging customers and address their
+                pain points by leveraging technology as an enabler.
               </p>
               <p>
-                We envision a world where we can be confident in helping
-                customers provide value through disruptive strategy.
+                We envision a world where we can be confident in helping customers provide value
+                through disruptive strategy.
               </p>
             </div>
           </div>
-          <div className="w-[45%] grid gap-3 grid-cols-12 grid-rows-12 h-[450px]">
-            <div className="relative col-start-7 col-end-13 row-start-1 row-end-13 rounded-xl overflow-hidden">
+          <div className="w-full lg:w-[45%] grid gap-3 grid-cols-12 grid-rows-12 min-h-[650px] lg:h-[450px]">
+            <div className="relative col-start-1 col-end-13 row-start-9 row-end-13 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-13 rounded-xl overflow-hidden">
               <Image
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710324076/folder/insurtechit.png"
                 alt=""
                 fill
-                objectFit="cover"
+                className="object-cover object-top"
               />
             </div>
-            <div className="relative col-start-1 col-end-7 row-start-7 row-end-13 rounded-xl overflow-hidden">
+            <div className="relative col-start-1 col-end-13 row-start-1 row-end-5 sm:col-start-1 sm:col-end-7 sm:row-start-7 sm:row-end-13 rounded-xl overflow-hidden">
               <Image
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710322952/folder/insurtechit.png"
                 alt=""
                 fill
-                objectFit="cover"
+                className="object-cover"
               />
             </div>
-            <div className="relative col-start-1 col-end-7 row-start-1 row-end-7 rounded-xl overflow-hidden">
+            <div className="relative col-start-1 col-end-13 row-start-5 row-end-9 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-7 rounded-xl overflow-hidden">
               {/* <AspectRatio ratio={1 / 1}> */}
               <Image
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710322955/folder/insurtechit-2.png"
                 alt=""
                 fill
-                objectFit="cover"
+                className="object-cover"
               />
               {/* </AspectRatio> */}
             </div>
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer className="py-20">
-        <div className="flex rounded-3xl overflow-hidden">
-          <div className="w-2/4 bg-brand bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center py-28 px-10">
-            <h3 className="text-5xl text-[#FFCB01] font-extrabold font-poppins mb-6 w-fit">
+      <SectionContainer className="my-20">
+        <div className="flex flex-col md:flex-row rounded-3xl overflow-hidden min-h-[375px]">
+          <div
+            id="section-5"
+            ref={(element) => sectionRefs?.current.push(element!)}
+            className="w-full md:w-2/4 bg-brand bg-[url('/3d-morph-lines.png')] flex flex-col justify-center bg-no-repeat bg-cover bg-center py-10 px-6 md:px-10"
+          >
+            <h3 className="text-3xl md:text-4xl xl:text-5xl text-[#FFCB01] font-extrabold font-poppins mb-3 md:mb-6 w-fit">
               Our Vision
             </h3>
-            <p className="text-white text-lg">
-              To be the preferred digital technology payment platform provider
-              in Sub-Saharan Africa
+            <p className="text-white text-base md:text-lg">
+              To be the preferred digital technology payment platform provider in Sub-Saharan Africa
             </p>
           </div>
-          <div className="w-2/4 relative">
+          <div className="w-full h-[375px] md:w-2/4 relative">
             <Image
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166147/folder/insurtechit-7.png"
               alt=""
@@ -180,12 +249,16 @@ export default function Home() {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer className="py-20">
+      <SectionContainer
+        id="section-6"
+        ref={(element) => sectionRefs?.current.push(element!)}
+        className="my-20"
+      >
         <p className="mb-1 text-base text-brand text-center">Core Values</p>
-        <h2 className="text-5xl text-center font-poppins mb-12">
+        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-12">
           The things we stand for
         </h2>
-        <div className="grid gap-3 grid-cols-12 grid-rows-12">
+        <div className="flex flex-col sm:grid gap-3 grid-rows-[repeat(12,minmax(0,65px))] grid-cols-12 lg:grid-rows-12">
           {CoreValues.map((value, idx) => (
             <Values
               key={idx}
@@ -195,11 +268,11 @@ export default function Home() {
               className={value?.className}
             />
           ))}
-          <div className="col-start-5 col-end-10 row-start-7 row-end-13 ml-4">
-            <p className="text-base mb-5 mt-6">
-              We understand that to deliver value continuously and to support
-              the customers – financial institutions and emerging customers, we
-              must ask the customers, “How can we help them get their job done?”
+          <div className="col-start-1 col-end-9 row-start-9 row-end-13 lg:col-start-5 lg:col-end-10 lg:row-start-7 lg:row-end-13 lg:ml-4">
+            <p className="text-base mb-5 mt-4 sm:mt-6">
+              We understand that to deliver value continuously and to support the customers –
+              financial institutions and emerging customers, we must ask the customers, “How can we
+              help them get their job done?”
             </p>
             <Button
               type="button"
@@ -212,40 +285,37 @@ export default function Home() {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer>
-        <h2 className="text-5xl font-poppins mb-12 leading-tight">
+      <SectionContainer id="section-7" ref={(element) => sectionRefs?.current.push(element!)}>
+        <h2 className="text-3xl md:text-4xl xl:text-5xl font-poppins mb-12 leading-tight">
           Cutting-edge <br /> Innovative Offerings
         </h2>
         <Offerings />
       </SectionContainer>
-      <SectionContainer className="py-20">
-        <div className="border border-[#FFCB01] rounded-xl overflow-hidden flex gap-4">
-          <div className="w-2/4 py-16 px-12">
+      <SectionContainer id="section-8" className="my-20 min-h-[300px]">
+        <div className="border border-[#FFCB01] rounded-xl overflow-hidden flex flex-col md:flex-row">
+          <div className="w-full md:w-2/4 py-8 px-8 lg:px-12">
             <div
               className={cn(
                 buttonVariants({
-                  variant: "outline",
-                  className: "mb-3 border-brand border-[1.5px]",
+                  variant: 'outline',
+                  className: 'mb-3 border-brand border'
                 })
               )}
             >
               Contact Us
             </div>
-            <h5 className="text-[#014751] text-2xl font-bold mb-4">
-              Get In Touch
-            </h5>
+            <h5 className="text-[#014751] text-2xl font-bold mb-4">Get In Touch</h5>
             <div className="text-base text-[#445D65]">
               <p className="mb-1">
-                Please call us on +234 809 944 0021 or email
-                info@insurtechit.com
+                Please call us on +234 809 944 0021 or email info@insurtechit.com
               </p>
               <p>
-                Visit our office at the address below: 2 Dele Omodara Close off
-                Titlayo Adedoyin Close Omole Phase 1
+                Visit our office at the address below: 2 Dele Omodara Close off Titlayo Adedoyin
+                Close Omole Phase 1
               </p>
             </div>
           </div>
-          <div className="w-2/4 relative">
+          <div className="w-full h-[250px] md:w-2/4 relative">
             <Image
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166147/folder/insurtechit-9.png"
               alt=""
@@ -255,11 +325,17 @@ export default function Home() {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer className="py-20">
+      <SectionContainer
+        id="section-9"
+        ref={(element) => sectionRefs?.current.push(element!)}
+        className="my-20"
+      >
         <AspectRatio ratio={16 / 9}>
-          <div className="bg-brand text-white bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center w-full min-h-full h-full flex flex-col items-center justify-center rounded-2xl overflow-hidden">
-            <h4 className="text-5xl mb-3">Book a demo now</h4>
-            <p className="mb-3 text-xl font-medium">
+          <div className="bg-brand px-8 py-12 text-white bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center w-full h-full flex flex-col items-center justify-center rounded-2xl overflow-hidden">
+            <h4 className="text-3xl md:text-4xl xl:text-5xl mb-1 md:mb-3 text-center">
+              Book a demo now
+            </h4>
+            <p className="mb-3 text-lg md:text-xl text-center font-medium">
               Let’s demonstrate how we can add value to your company
             </p>
             <Button

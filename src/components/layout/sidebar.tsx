@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useCallback } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { useGlobalStoreContext } from "../../context";
-import { MenuItem } from "./types";
+import { useCallback } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { useGlobalStoreContext } from '../../context';
+import { MenuItem } from './types';
 
 interface Props {
   items: MenuItem[];
@@ -15,15 +15,15 @@ interface Props {
 const SiteSidebar: React.FC<Props> = ({ items }) => {
   const {
     state: {
-      UI: { isSidebarOpen },
+      UI: { isSidebarOpen }
     },
-    dispatch,
+    dispatch
   } = useGlobalStoreContext();
   const pathname = usePathname();
 
   const handleSetSideBarChange = useCallback(
     (payload: boolean) => {
-      dispatch({ type: "SET_SIDEBAR", payload });
+      dispatch({ type: 'SET_SIDEBAR', payload });
     },
     [dispatch]
   );
@@ -34,13 +34,10 @@ const SiteSidebar: React.FC<Props> = ({ items }) => {
 
   return (
     <div>
-      {" "}
       <aside
         className={cn(
-          "fixed top-0 right-0 w-screen h-screen transition-all duration-300 md:hidden z-10 bg-white",
-          isSidebarOpen
-            ? "translate-x-0 opacity-1"
-            : "-translate-x-full opacity-0"
+          'fixed top-0 right-0 w-screen h-[70vh] rounded-b-xl transition-transform duration-300 md:hidden z-10 bg-white',
+          isSidebarOpen ? 'translate-y-0 opacity-1' : '-translate-y-full opacity-0'
         )}
       >
         <ul className="flex justify-center flex-col space-y-10 text-center h-full overflow-hidden text-white items-center text-xl">
@@ -48,10 +45,10 @@ const SiteSidebar: React.FC<Props> = ({ items }) => {
             <li
               key={index}
               className={cn(
-                "text-black cursor-pointer",
+                'text-black cursor-pointer',
                 pathname === item.link
-                  ? "bg-[#cfdfee] font-normal py-2 px-4 rounded-lg transition-all border border-brand"
-                  : ""
+                  ? 'font-normalrounded-lg transition-all border-b-2 border-brand'
+                  : ''
               )}
             >
               <Link href={item.link}>{item.name}</Link>

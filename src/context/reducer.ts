@@ -24,6 +24,16 @@ const reducer: ContextReducer = (state, action) => {
       };
       break;
     }
+    case "SET_NAVBAR-COLOR": {
+      newState = {
+        ...state,
+        UI: {
+          ...state.UI,
+          navbarColor: action.payload.color,
+        },
+      };
+      break;
+    }
     default:
       throw new Error(`No such type`);
   }

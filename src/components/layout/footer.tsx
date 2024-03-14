@@ -1,9 +1,9 @@
-import { SOCIAL_MEDIA_LINKS } from "./constants";
+import { SOCIAL_MEDIA_LINKS } from './constants';
 
 const SiteFooter = () => {
   return (
-    <footer className="bg-brand text-white w-full py-4 px-6 shadow-md">
-      <div className="flex items-center justify-between text-sm">
+    <footer id="footer" className="bg-brand text-white w-full py-4 px-6 shadow-md">
+      <div className="flex items-center gap-2 sm:gap-6 flex-col sm:flex-row sm:justify-between text-sm">
         <p className="text-center text-sm md:text-md">
           &copy; {new Date().getFullYear()} Insurtechit. All rights reserved
         </p>

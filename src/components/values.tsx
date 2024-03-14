@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   image: string;
@@ -11,7 +11,7 @@ const Values: React.FC<Props> = ({ image, title, content, className }) => {
   return (
     <div
       className={cn(
-        "py-8 px-6 border-[1.5px] border-[#445D65]/30 rounded-xl overflow-hidden shadow-sm",
+        'py-8 px-5 md:px-6 border-[1.5px] border-[#445D65]/30 rounded-xl overflow-hidden shadow-sm',
         className
       )}
     >

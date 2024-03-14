@@ -8,7 +8,11 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const SectionContainer = React.forwardRef<HTMLDivElement, Props>(
   ({ children, className, ...rest }, ref) => {
     return (
-      <section className={cn("px-12", className)} ref={ref} {...rest}>
+      <section
+        className={cn("px-6 md:px-10 lg:px-12", className)}
+        ref={ref}
+        {...rest}
+      >
         {children}
       </section>
     );
