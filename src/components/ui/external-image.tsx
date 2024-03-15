@@ -18,8 +18,6 @@ export interface ExternalImageProps extends ImageProps {
 }
 
 const ExternalImage: FC<ExternalImageProps> = ({
-  width,
-  height,
   src,
   alt,
   className,
@@ -28,7 +26,6 @@ const ExternalImage: FC<ExternalImageProps> = ({
   onClick,
   ...rest
 }) => {
-  console.log(width);
   return (
     <Image
       src={size ? resizeImage(src, size || 'MEDIUM') : src}
@@ -37,8 +34,6 @@ const ExternalImage: FC<ExternalImageProps> = ({
       className={cn('', objectFit || 'object-cover', className)}
       objectFit={objectFit || 'cover'}
       blurDataURL={resizeImage(src, 'PLACEHOLDER')}
-      width={width}
-      height={height}
       {...rest}
     />
   );

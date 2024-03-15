@@ -3,8 +3,8 @@ import { MenuItem } from './types';
 
 export const MENU_ITEMS: MenuItem[] = [
   { name: 'Our Products', link: '#section-7' },
-  { name: 'About us', link: '/about-us' },
-  { name: 'Contact Us', link: '/contact' }
+  { name: 'About us', link: '#section-6' },
+  { name: 'Contact Us', link: '#footer' }
 ];
 
 export const SOCIAL_MEDIA_LINKS = [

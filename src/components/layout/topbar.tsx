@@ -3,11 +3,11 @@
 import { useGlobalStoreContext } from '@/context';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import { Button } from '../ui/button';
+import ExternalImage from '../ui/external-image';
 import { MenuItem } from './types';
 
 interface HeaderProps {
@@ -43,7 +43,7 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
     >
       <nav className="flex items-center justify-between">
         <Link href="/">
-          <Image
+          <ExternalImage
             src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166155/folder/insurtechit-50.png"
             alt="Insurtechit"
             width={100}
@@ -53,7 +53,7 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
         </Link>
         <Button
           aria-label={isSidebarOpen ? 'Close sidebar navigation' : 'Open sidebar navigation'}
-          className={cn('block relative cursor-pointer group md:hidden')}
+          className={cn('fixed top-4 right-6 shadow-md cursor-pointer group md:hidden text-center')}
           size="icon"
           type="button"
           variant="unstyled"
@@ -61,7 +61,10 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
         >
           <span
             className={cn(
-              "inline-block rounded-full after:rounded-full before:rounded-full rotate-0 before:group-hover:opacity-100 after:group-hover:opacity-100 before:group-hover:rotate-45 after:group-hover:-rotate-45 transition-all duration-500 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 cursor-pointer md:hidden absolute bg-black h-[2px] w-[30px] before:content-[''] before:absolute before:w-full before:-top-[10px] before:h-full before:bg-inherit before:left-0 after:content-[''] after:absolute after:w-full after:h-full after:top-[10px] after:left-0 after:bg-inherit"
+              "inline-block rounded-full after:rounded-full before:rounded-full transition-all before:inline-block after:inline-block duration-500 cursor-pointer md:hidden relative bg-black h-[2px] w-[30px] before:content-[''] before:absolute before:w-[30px] before:hover: before:h-[2px] after:w-[30px] after:h-[2px] before:-top-[10px] before:bg-black before:left-0 after:content-[''] after:absolute after:top-[10px] after:left-0 after:bg-black",
+              isSidebarOpen
+                ? 'bg-transparent before:rotate-[135deg] after:-rotate-[135deg] before:top-0 after:top-0'
+                : ''
             )}
           ></span>
         </Button>

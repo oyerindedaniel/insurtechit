@@ -86,8 +86,8 @@ export const resizeImage = (url: string, type: ImageTypes) => {
           transformations: {
             gravity: 'face',
             resize: {
-              width: 50,
-              height: 50,
+              // width: 50,
+              // height: 50,
               type: 'fill'
             },
             format: 'png',
