@@ -97,7 +97,7 @@ export default function Home() {
             <motion.p
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.3', delay: 0.5 }}
+              transition={{ duration: '.5', delay: 0.5 }}
               viewport={{ once: true }}
               className="text-md sm:text-lg mb-8 text-center md:text-left"
             >
@@ -107,7 +107,7 @@ export default function Home() {
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.3', delay: 1 }}
+              transition={{ duration: '.5', delay: 1 }}
               viewport={{ once: true }}
               className="flex gap-4 sm:gap-6 items-center justify-center flex-col sm:flex-row md:justify-start"
             >
@@ -214,7 +214,7 @@ export default function Home() {
             />
             <h3 className="text-3xl lg:text-4xl font-medium font-poppins mb-4">Our Story</h3>
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: '.5' }}
               viewport={{ once: true }}
