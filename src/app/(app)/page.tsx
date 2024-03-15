@@ -110,7 +110,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full md:w-[45%] z-0 relative">
-            <Image
+            <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502580/folder/hww6lttfjiwjgugzqmrx.png"
               alt=""
               fill
@@ -314,11 +314,11 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full h-[300px] md:w-2/4 relative">
-            <Image
+            <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502550/folder/pr76auuuyd5mfe9lmli2.png"
               alt=""
               fill
-              objectFit="cover"
+              objectFit="object-cover"
             />
           </div>
         </div>
