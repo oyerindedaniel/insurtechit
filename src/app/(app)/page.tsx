@@ -6,6 +6,7 @@ import SectionContainer from '@/components/section-container';
 import Stats from '@/components/stats';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button, buttonVariants } from '@/components/ui/button';
+import ExternalImage from '@/components/ui/external-image';
 import Values from '@/components/values';
 import { Colors } from '@/config';
 import { useGlobalStoreContext } from '@/context';
@@ -115,7 +116,7 @@ export default function Home() {
               fill
               className="absolute -z-10 translate-x-2/4 scale-125"
             />
-            <Image
+            <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166160/folder/insurtechit-52.png"
               alt="insurtechit"
               height={804}
@@ -134,7 +135,7 @@ export default function Home() {
         </h2>
         <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full">
           {Partners.map((partner) => (
-            <Image
+            <ExternalImage
               key={partner?.alt}
               src={partner?.image}
               alt={partner?.alt}
@@ -173,7 +174,7 @@ export default function Home() {
         </h2>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="w-full lg:w-2/4">
-            <Image
+            <ExternalImage
               className="mb-6"
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166151/folder/insurtechit-26.png"
               alt="our story"
@@ -195,30 +196,28 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="w-full lg:w-[45%] grid gap-3 grid-cols-12 grid-rows-12 min-h-[650px] lg:h-[450px]">
+          <div className="w-full lg:w-[45%] grid gap-3 grid-cols-12 grid-rows-12 min-h-[650px] lg:min-h-full lg:h-[450px]">
             <div className="relative col-start-1 col-end-13 row-start-9 row-end-13 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-13 rounded-xl overflow-hidden">
-              <Image
+              <ExternalImage
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710324076/folder/insurtechit.png"
                 alt=""
                 fill
-                className="object-cover object-top"
+                className="object-top"
               />
             </div>
             <div className="relative col-start-1 col-end-13 row-start-1 row-end-5 sm:col-start-1 sm:col-end-7 sm:row-start-7 sm:row-end-13 rounded-xl overflow-hidden">
-              <Image
+              <ExternalImage
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710322952/folder/insurtechit.png"
                 alt=""
                 fill
-                className="object-cover"
               />
             </div>
             <div className="relative col-start-1 col-end-13 row-start-5 row-end-9 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-7 rounded-xl overflow-hidden">
               {/* <AspectRatio ratio={1 / 1}> */}
-              <Image
+              <ExternalImage
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710322955/folder/insurtechit-2.png"
                 alt=""
                 fill
-                className="object-cover"
               />
               {/* </AspectRatio> */}
             </div>
@@ -240,11 +239,10 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full h-[375px] md:w-2/4 relative">
-            <Image
+            <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166147/folder/insurtechit-7.png"
               alt=""
               fill
-              objectFit="cover"
             />
           </div>
         </div>

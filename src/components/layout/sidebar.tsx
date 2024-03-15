@@ -1,10 +1,9 @@
 'use client';
 
-import { useCallback } from 'react';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react';
-import { cn } from '@/lib/utils';
+import React, { useCallback, useEffect } from 'react';
 import { useGlobalStoreContext } from '../../context';
 import { MenuItem } from './types';
 
@@ -46,9 +45,7 @@ const SiteSidebar: React.FC<Props> = ({ items }) => {
               key={index}
               className={cn(
                 'text-black cursor-pointer',
-                pathname === item.link
-                  ? 'font-normalrounded-lg transition-all border-b-2 border-brand'
-                  : ''
+                pathname === item.link ? 'font-semibold transition-all border-b-2 border-brand' : ''
               )}
             >
               <Link href={item.link}>{item.name}</Link>

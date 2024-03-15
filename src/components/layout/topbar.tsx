@@ -32,8 +32,14 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
   return (
     <header
       id="header"
-      style={{ backgroundColor: navbarColor }}
-      className="px-6 shadow-md lg:px-12 backdrop-blur-md py-4 fixed w-full max-w-[1500px] mx-auto z-30"
+      style={{
+        backgroundColor: navbarColor,
+        ...(navbarColor === '#FFFFFF' && {
+          color: 'black',
+          boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+        })
+      }}
+      className="px-6 lg:px-12 text-white backdrop-blur-md py-4 fixed w-full max-w-[1500px] mx-auto z-30"
     >
       <nav className="flex items-center justify-between">
         <Link href="/">
@@ -64,8 +70,8 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
             <li
               key={index}
               className={cn(
-                'text-white cursor-pointer relative',
-                pathname === item.link ? 'font-normal' : ''
+                'text-inherit cursor-pointer relative transition-all duration-75 hover:font-semibold hover:border-b-2 hover:border-brand',
+                pathname === item.link ? 'font-semibold' : ''
               )}
             >
               <Link href={item.link}>{item.name}</Link>

@@ -2,6 +2,8 @@ import { Keys } from '@/types';
 
 export const localStorageName = 'insurtechit';
 
+export const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dqm7wwe4d';
+
 export const Colors: Record<Keys, string> & { [key: string]: string } = {
   [Keys.HEADER]: 'transparent',
   [Keys.SECTION_1]: 'transparent',
