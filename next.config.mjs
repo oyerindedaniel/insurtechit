@@ -1,18 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack']
     });
 
     return config;
   },
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: ['res.cloudinary.com']
   },
-  swcMinify: true,
+  swcMinify: true
 };
 
 export default nextConfig;
