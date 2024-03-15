@@ -84,7 +84,7 @@ export default function Home() {
       >
         <div className="flex justify-between items-center flex-col md:flex-row">
           <div className="w-full md:w-2/4 mb-12 md:mb-0">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] text-center md:text-left font-poppins font-medium mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-center md:text-left font-poppins font-medium mb-4">
               Digital Technology Platform for Emerging Markets.
             </h1>
             <p className="text-md sm:text-lg mb-8 text-center md:text-left">
@@ -130,7 +130,7 @@ export default function Home() {
         ref={(element) => sectionRefs?.current.push(element!)}
         className="my-20"
       >
-        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-8">
+        <h2 className="text-3xl md:text-4xl text-center font-poppins mb-8">
           Our Strategic Partners
         </h2>
         <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full">
@@ -149,7 +149,7 @@ export default function Home() {
         <p className="mb-1 text-base text-brand text-center">
           Our achievement in the journey depicted in numbers
         </p>
-        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-8">
+        <h2 className="text-3xl md:text-4xl text-center font-poppins mb-8">
           Some count that matters
         </h2>
         <div
@@ -168,7 +168,7 @@ export default function Home() {
         className="my-20"
       >
         <p className="mb-1 text-base text-brand text-center">About Us</p>
-        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-12">
+        <h2 className="text-3xl md:text-4xl text-center font-poppins mb-12">
           Enabling Financial Institutions and other <br className="hidden lg:block" /> players to
           reach the Banked and Unbanked
         </h2>
@@ -231,7 +231,7 @@ export default function Home() {
             ref={(element) => sectionRefs?.current.push(element!)}
             className="w-full md:w-2/4 bg-brand bg-[url('/3d-morph-lines.png')] flex flex-col justify-center bg-no-repeat bg-cover bg-center py-10 px-6 md:px-10"
           >
-            <h3 className="text-3xl md:text-4xl xl:text-5xl text-[#FFCB01] font-extrabold font-poppins mb-3 md:mb-6 w-fit">
+            <h3 className="text-3xl md:text-4xl text-[#FFCB01] font-extrabold font-poppins mb-3 md:mb-6 w-fit">
               Our Vision
             </h3>
             <p className="text-white text-base md:text-lg">
@@ -253,7 +253,7 @@ export default function Home() {
         className="my-20"
       >
         <p className="mb-1 text-base text-brand text-center">Core Values</p>
-        <h2 className="text-3xl md:text-4xl xl:text-5xl text-center font-poppins mb-12">
+        <h2 className="text-3xl md:text-4xl text-center font-poppins mb-12">
           The things we stand for
         </h2>
         <div className="flex flex-col sm:grid gap-3 grid-rows-[repeat(12,minmax(0,65px))] grid-cols-12 lg:grid-rows-12">
@@ -284,7 +284,7 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer id="section-7" ref={(element) => sectionRefs?.current.push(element!)}>
-        <h2 className="text-3xl md:text-4xl xl:text-5xl font-poppins mb-12 leading-tight">
+        <h2 className="text-3xl md:text-4xl font-poppins mb-12 leading-tight">
           Cutting-edge <br /> Innovative Offerings
         </h2>
         <Offerings />
@@ -330,9 +330,7 @@ export default function Home() {
       >
         <AspectRatio ratio={16 / 9}>
           <div className="bg-brand px-8 py-12 text-white bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center w-full h-full flex flex-col items-center justify-center rounded-2xl overflow-hidden">
-            <h4 className="text-3xl md:text-4xl xl:text-5xl mb-1 md:mb-3 text-center">
-              Book a demo now
-            </h4>
+            <h4 className="text-3xl md:text-4xl mb-1 md:mb-3 text-center">Book a demo now</h4>
             <p className="mb-3 text-lg md:text-xl text-center font-medium">
               Let’s demonstrate how we can add value to your company
             </p>

@@ -53,7 +53,7 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
         </Link>
         <Button
           aria-label={isSidebarOpen ? 'Close sidebar navigation' : 'Open sidebar navigation'}
-          className={cn('fixed top-4 right-6 shadow-md cursor-pointer group md:hidden text-center')}
+          className={cn('fixed top-4 right-6 shadow-sm cursor-pointer group md:hidden text-center')}
           size="icon"
           type="button"
           variant="unstyled"
