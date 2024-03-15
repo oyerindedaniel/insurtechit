@@ -11,6 +11,7 @@ import Values from '@/components/values';
 import { Colors } from '@/config';
 import { useGlobalStoreContext } from '@/context';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CoreValues, OurStats, Partners } from '../constants';
@@ -84,14 +85,32 @@ export default function Home() {
       >
         <div className="flex justify-between items-center flex-col md:flex-row">
           <div className="w-full md:w-2/4 mb-12 md:mb-0">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-center md:text-left font-poppins font-medium mb-4">
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: '.5' }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-center md:text-left font-poppins font-medium mb-4"
+            >
               Digital Technology Platform for Emerging Markets.
-            </h1>
-            <p className="text-md sm:text-lg mb-8 text-center md:text-left">
+            </motion.h1>
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: '.3', delay: 0.5 }}
+              viewport={{ once: true }}
+              className="text-md sm:text-lg mb-8 text-center md:text-left"
+            >
               We provide you with a hassle-free, reliable, and customized digital technology
               platform to deliver value to your customers.
-            </p>
-            <div className="flex gap-4 sm:gap-6 items-center justify-center flex-col sm:flex-row md:justify-start">
+            </motion.p>
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: '.3', delay: 1 }}
+              viewport={{ once: true }}
+              className="flex gap-4 sm:gap-6 items-center justify-center flex-col sm:flex-row md:justify-start"
+            >
               <Button
                 type="button"
                 size="lg"
@@ -107,10 +126,10 @@ export default function Home() {
               >
                 Contact Sales
               </Button>
-            </div>
+            </motion.div>
           </div>
           <div className="w-full md:w-[45%] z-0 relative">
-            <ExternalImage
+            <Image
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502580/folder/hww6lttfjiwjgugzqmrx.png"
               alt=""
               fill
@@ -130,10 +149,22 @@ export default function Home() {
         ref={(element) => sectionRefs?.current.push(element!)}
         className="my-20"
       >
-        <h2 className="text-3xl md:text-4xl text-center font-poppins mb-8">
+        <motion.h2
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: '.4' }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl text-center font-poppins mb-8"
+        >
           Our Strategic Partners
-        </h2>
-        <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full">
+        </motion.h2>
+        <motion.div
+          initial={{ y: 35, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: '.3', delay: 0.5 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full"
+        >
           {Partners.map((partner) => (
             <ExternalImage
               key={partner?.alt}
@@ -143,7 +174,7 @@ export default function Home() {
               height={100}
             />
           ))}
-        </div>
+        </motion.div>
       </SectionContainer>
       <SectionContainer className="my-20 ">
         <p className="mb-1 text-base text-brand text-center">
@@ -182,7 +213,13 @@ export default function Home() {
               height={75}
             />
             <h3 className="text-3xl lg:text-4xl font-medium font-poppins mb-4">Our Story</h3>
-            <div className="text-lg">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: '.5' }}
+              viewport={{ once: true }}
+              className="text-lg"
+            >
               <p className="mb-6">
                 We understand that to deliver value continuously and to support the customers –
                 financial institutions and emerging customers, we must ask the customers, “How can
@@ -194,7 +231,7 @@ export default function Home() {
                 We envision a world where we can be confident in helping customers provide value
                 through disruptive strategy.
               </p>
-            </div>
+            </motion.div>
           </div>
           <div className="w-full lg:w-[45%] grid gap-3 grid-cols-12 grid-rows-12 min-h-[650px] lg:min-h-full lg:h-[450px]">
             <div className="relative col-start-1 col-end-13 row-start-9 row-end-13 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-13 rounded-xl overflow-hidden">
@@ -260,6 +297,7 @@ export default function Home() {
           {CoreValues.map((value, idx) => (
             <Values
               key={idx}
+              index={idx}
               title={value?.title}
               content={value?.content}
               image={value?.image}
@@ -283,7 +321,11 @@ export default function Home() {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer id="section-7" ref={(element) => sectionRefs?.current.push(element!)}>
+      <SectionContainer
+        id="section-7"
+        className="min-h-screen"
+        ref={(element) => sectionRefs?.current.push(element!)}
+      >
         <h2 className="text-3xl md:text-4xl font-poppins mb-12 leading-tight">
           Cutting-edge <br /> Innovative Offerings
         </h2>

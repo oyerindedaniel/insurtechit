@@ -97,7 +97,7 @@ export const Offerings = [
   },
   {
     image:
-      'https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502574/folder/xussdu5pfaswxb9q0jvu.png',
+      'https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502550/folder/pr76auuuyd5mfe9lmli2.png',
     title: 'SMS Platform',
     content:
       'Receive real-time notifications for all your financial and non-financial transactions directly on your mobile phone.'

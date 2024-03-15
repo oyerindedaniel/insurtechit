@@ -2,8 +2,9 @@
 
 import { Offerings as OfferingsData } from '@/app/constants';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import ExternalImage from './ui/external-image';
 
 interface OfferingProps {
   title: string;
@@ -28,7 +29,7 @@ const Offering: React.FC<OfferingProps> = ({
       )}
       onClick={() => setActiveOfferingIdx(index)}
     >
-      <h6 className="font-medium text-xl mb-2">{title}</h6>
+      <h6 className="font-medium text-xl mb-2 w-fit">{title}</h6>
       <p className="text-sm">{content}</p>
     </div>
   );
@@ -36,6 +37,15 @@ const Offering: React.FC<OfferingProps> = ({
 
 const Offerings = () => {
   const [activeOfferingIdx, setActiveOfferingIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveOfferingIdx((prevIdx) => (prevIdx + 1) % OfferingsData.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col md:flex-row gap-6">
       <div className="md:w-2/4 overflow-auto">
@@ -52,9 +62,25 @@ const Offerings = () => {
           ))}
         </div>
       </div>
-      <div className="w-full md:w-2/4 relative rounded-xl min-h-[500px] md:min-h-full overflow-hidden">
-        <Image src={OfferingsData[activeOfferingIdx]?.image} alt="" fill objectFit="cover" />
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeOfferingIdx}
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full md:w-2/4 relative rounded-xl min-h-[500px] md:min-h-full overflow-hidden"
+        >
+          {OfferingsData[activeOfferingIdx]?.image && (
+            <ExternalImage
+              src={OfferingsData[activeOfferingIdx]?.image}
+              alt=""
+              fill
+              objectFit="object-cover"
+            />
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
