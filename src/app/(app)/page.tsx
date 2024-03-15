@@ -207,7 +207,7 @@ export default function Home() {
             </div>
             <div className="relative col-start-1 col-end-13 row-start-1 row-end-5 sm:col-start-1 sm:col-end-7 sm:row-start-7 sm:row-end-13 rounded-xl overflow-hidden">
               <ExternalImage
-                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710322952/folder/insurtechit.png"
+                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710499970/folder/cxac43qyczm3zzvszpzj.png"
                 alt=""
                 fill
               />
@@ -215,7 +215,7 @@ export default function Home() {
             <div className="relative col-start-1 col-end-13 row-start-5 row-end-9 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-7 rounded-xl overflow-hidden">
               {/* <AspectRatio ratio={1 / 1}> */}
               <ExternalImage
-                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710322955/folder/insurtechit-2.png"
+                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710499915/folder/cugxxghnk50gmd7qdtbt.png"
                 alt=""
                 fill
               />
