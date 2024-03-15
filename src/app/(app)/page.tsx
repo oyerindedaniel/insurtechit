@@ -111,13 +111,13 @@ export default function Home() {
           </div>
           <div className="w-full md:w-[45%] z-0 relative">
             <Image
-              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166156/folder/insurtechit-48.png"
+              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502580/folder/hww6lttfjiwjgugzqmrx.png"
               alt=""
               fill
               className="absolute -z-10 translate-x-2/4 scale-125"
             />
             <ExternalImage
-              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166160/folder/insurtechit-52.png"
+              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502582/folder/uflojph6wmv2ivg8w7fm.png"
               alt="insurtechit"
               height={804}
               width={804}
@@ -176,7 +176,7 @@ export default function Home() {
           <div className="w-full lg:w-2/4">
             <ExternalImage
               className="mb-6"
-              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166151/folder/insurtechit-26.png"
+              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502561/folder/fldzw5jsqgxbh2nvqgkg.png"
               alt="our story"
               width={75}
               height={75}
@@ -199,7 +199,7 @@ export default function Home() {
           <div className="w-full lg:w-[45%] grid gap-3 grid-cols-12 grid-rows-12 min-h-[650px] lg:min-h-full lg:h-[450px]">
             <div className="relative col-start-1 col-end-13 row-start-9 row-end-13 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-13 rounded-xl overflow-hidden">
               <ExternalImage
-                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710324076/folder/insurtechit.png"
+                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502758/folder/hmsxwtc5krb2mjr2iv0h.png"
                 alt=""
                 fill
                 className="object-top"
@@ -207,7 +207,7 @@ export default function Home() {
             </div>
             <div className="relative col-start-1 col-end-13 row-start-1 row-end-5 sm:col-start-1 sm:col-end-7 sm:row-start-7 sm:row-end-13 rounded-xl overflow-hidden">
               <ExternalImage
-                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710499970/folder/cxac43qyczm3zzvszpzj.png"
+                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502527/folder/nttkxs1ss9bjvwzsazaq.png"
                 alt=""
                 fill
               />
@@ -215,7 +215,7 @@ export default function Home() {
             <div className="relative col-start-1 col-end-13 row-start-5 row-end-9 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-7 rounded-xl overflow-hidden">
               {/* <AspectRatio ratio={1 / 1}> */}
               <ExternalImage
-                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710499915/folder/cugxxghnk50gmd7qdtbt.png"
+                src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502535/folder/vrzoeqcy7ly5dd48rfw3.png"
                 alt=""
                 fill
               />
@@ -240,7 +240,7 @@ export default function Home() {
           </div>
           <div className="w-full h-[375px] md:w-2/4 relative">
             <ExternalImage
-              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166147/folder/insurtechit-7.png"
+              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502525/folder/oub1ooc5wkrf7ahcfxuh.png"
               alt=""
               fill
             />
@@ -290,7 +290,7 @@ export default function Home() {
         <Offerings />
       </SectionContainer>
       <SectionContainer id="section-8" className="my-20 min-h-[300px]">
-        <div className="border border-[#FFCB01] rounded-xl overflow-hidden flex flex-col md:flex-row">
+        <div className="border border-[#FFCB01] rounded-xl overflow-hidden flex items-center flex-col md:flex-row">
           <div className="w-full md:w-2/4 py-8 px-8 lg:px-12">
             <div
               className={cn(
@@ -313,9 +313,9 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="w-full h-[250px] md:w-2/4 relative">
+          <div className="w-full h-[300px] md:w-2/4 relative">
             <Image
-              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710166147/folder/insurtechit-9.png"
+              src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502550/folder/pr76auuuyd5mfe9lmli2.png"
               alt=""
               fill
               objectFit="cover"
