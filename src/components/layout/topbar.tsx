@@ -64,7 +64,10 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
               "inline-block rounded-full after:rounded-full before:rounded-full transition-all before:inline-block after:inline-block duration-500 cursor-pointer md:hidden relative bg-black h-[2px] w-[30px] before:content-[''] before:absolute before:w-[30px] before:hover: before:h-[2px] after:w-[30px] after:h-[2px] before:-top-[10px] before:bg-black before:left-0 after:content-[''] after:absolute after:top-[10px] after:left-0 after:bg-black",
               isSidebarOpen
                 ? 'bg-transparent before:rotate-[135deg] after:-rotate-[135deg] before:top-0 after:top-0'
-                : ''
+                : '',
+              navbarColor === 'transparent' &&
+                !isSidebarOpen &&
+                'bg-white after:bg-inherit before:bg-inherit'
             )}
           ></span>
         </Button>

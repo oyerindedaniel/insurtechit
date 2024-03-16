@@ -11,6 +11,7 @@ import Values from '@/components/values';
 import { Colors } from '@/config';
 import { useGlobalStoreContext } from '@/context';
 import { cn } from '@/lib/utils';
+import { Keys } from '@/types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -79,7 +80,7 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <SectionContainer
-        id="section-1"
+        id={Keys.SECTION_1}
         ref={(element) => sectionRefs?.current.push(element!)}
         className="bg-brand text-white pt-[125px] pb-[100px] bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-top"
       >
@@ -145,7 +146,7 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer
-        id="section-2"
+        id={Keys.SECTION_2}
         ref={(element) => sectionRefs?.current.push(element!)}
         className="my-20"
       >
@@ -159,9 +160,9 @@ export default function Home() {
           Our Strategic Partners
         </motion.h2>
         <motion.div
-          initial={{ y: 35, opacity: 0 }}
+          initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: '.3', delay: 0.5 }}
+          transition={{ duration: '.5', delay: 0.25 }}
           viewport={{ once: true }}
           className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full"
         >
@@ -176,7 +177,7 @@ export default function Home() {
           ))}
         </motion.div>
       </SectionContainer>
-      <SectionContainer className="my-20 ">
+      <SectionContainer id={Keys.SECTION_3} className="my-20">
         <p className="mb-1 text-base text-brand text-center">
           Our achievement in the journey depicted in numbers
         </p>
@@ -184,7 +185,6 @@ export default function Home() {
           Some count that matters
         </h2>
         <div
-          id="section-3"
           ref={(element) => sectionRefs?.current.push(element!)}
           className="bg-brand flex-wrap lg:flex-nowrap px-4 lg:px-8 py-14 min-h-[300px] rounded-xl text-white flex items-center justify-between gap-6 bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center"
         >
@@ -194,7 +194,7 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer
-        id="section-4"
+        id={Keys.SECTION_4}
         ref={(element) => sectionRefs?.current.push(element!)}
         className="my-20"
       >
@@ -261,10 +261,9 @@ export default function Home() {
           </div>
         </div>
       </SectionContainer>
-      <SectionContainer className="my-20">
+      <SectionContainer id={Keys.SECTION_5} className="my-20">
         <div className="flex flex-col md:flex-row rounded-3xl overflow-hidden min-h-[375px]">
           <div
-            id="section-5"
             ref={(element) => sectionRefs?.current.push(element!)}
             className="w-full md:w-2/4 bg-brand bg-[url('/3d-morph-lines.png')] flex flex-col justify-center bg-no-repeat bg-cover bg-center py-10 px-6 md:px-10"
           >
@@ -285,7 +284,7 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer
-        id="section-6"
+        id={Keys.SECTION_6}
         ref={(element) => sectionRefs?.current.push(element!)}
         className="my-20"
       >
@@ -322,7 +321,7 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer
-        id="section-7"
+        id={Keys.SECTION_7}
         className="min-h-screen"
         ref={(element) => sectionRefs?.current.push(element!)}
       >
@@ -331,7 +330,7 @@ export default function Home() {
         </h2>
         <Offerings />
       </SectionContainer>
-      <SectionContainer id="section-8" className="my-20 min-h-[300px]">
+      <SectionContainer id={Keys.SECTION_8} className="my-20 min-h-[300px]">
         <div className="border border-[#FFCB01] rounded-xl overflow-hidden flex items-center flex-col md:flex-row">
           <div className="w-full md:w-2/4 py-8 px-8 lg:px-12">
             <div
@@ -366,7 +365,7 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer
-        id="section-9"
+        id={Keys.SECTION_9}
         ref={(element) => sectionRefs?.current.push(element!)}
         className="my-20"
       >

@@ -1,10 +1,11 @@
 import { Facebook, Instagram, Linkedin, Twitter } from '@/assets';
+import { Keys } from '@/types';
 import { MenuItem } from './types';
 
 export const MENU_ITEMS: MenuItem[] = [
-  { name: 'Our Products', link: '#section-7' },
-  { name: 'About us', link: '#section-6' },
-  { name: 'Contact Us', link: '#footer' }
+  { name: 'Our Products', link: `#${Keys.SECTION_7}` },
+  { name: 'About us', link: `#${Keys.SECTION_6}` },
+  { name: 'Contact Us', link: `#${Keys.SECTION_8}` }
 ];
 
 export const SOCIAL_MEDIA_LINKS = [

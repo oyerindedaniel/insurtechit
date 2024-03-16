@@ -16,6 +16,7 @@ const Values: React.FC<Props> = ({ image, title, content, className, index }) =>
       initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: '.9', delay: 0.1 + (index / 10) * 2 }}
+      viewport={{ once: true }}
       className={cn(
         'py-8 px-5 md:px-6 border-[1.5px] border-[#445D65]/30 rounded-xl overflow-hidden shadow-sm',
         className

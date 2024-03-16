@@ -38,13 +38,13 @@ const Offering: React.FC<OfferingProps> = ({
 const Offerings = () => {
   const [activeOfferingIdx, setActiveOfferingIdx] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveOfferingIdx((prevIdx) => (prevIdx + 1) % OfferingsData.length);
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveOfferingIdx((prevIdx) => (prevIdx + 1) % OfferingsData.length);
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="flex flex-col md:flex-row gap-6">

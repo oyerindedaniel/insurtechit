@@ -48,7 +48,9 @@ const SiteSidebar: React.FC<Props> = ({ items }) => {
                 pathname === item.link ? 'font-semibold transition-all border-b-2 border-brand' : ''
               )}
             >
-              <Link href={item.link}>{item.name}</Link>
+              <Link href={item.link} onClick={() => handleSetSideBarChange(false)}>
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
