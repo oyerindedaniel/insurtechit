@@ -78,7 +78,7 @@ export default function Home() {
     'sm:col-start-1 sm:col-end-7 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-5 sm:row-start-5 sm:row-end-9 lg:col-start-1 lg:col-end-5 lg:col-start-5 lg:col-end-9 lg:col-start-9 lg:col-end-13 lg:row-start-1 lg:row-end-7 lg:row-start-7 lg:row-end-13';
 
   return (
-    <main className="overflow-hidden">
+    <>
       <SectionContainer
         id={Keys.SECTION_1}
         ref={(element) => sectionRefs?.current.push(element!)}
@@ -91,7 +91,7 @@ export default function Home() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: '.5' }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-center md:text-left font-poppins font-medium mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl leading-[1.15] sm:leading-[1.15] lg:leading-[1.15] text-center md:text-left font-poppins font-medium mb-4"
             >
               Digital Technology Platform for Emerging Markets.
             </motion.h1>
@@ -189,7 +189,13 @@ export default function Home() {
           className="bg-brand flex-wrap lg:flex-nowrap px-4 lg:px-8 py-14 min-h-[300px] rounded-xl text-white flex items-center justify-between gap-6 bg-[url('/3d-morph-lines.png')] bg-no-repeat bg-cover bg-center"
         >
           {OurStats.map((stat, idx) => (
-            <Stats key={idx} prefix={stat.prefix} about={stat.about} figure={stat.figure} />
+            <Stats
+              key={idx}
+              prefix={stat.prefix}
+              about={stat.about}
+              figure={stat.figure}
+              figureAbout={stat.figureAbout}
+            />
           ))}
         </div>
       </SectionContainer>
@@ -337,7 +343,7 @@ export default function Home() {
               className={cn(
                 buttonVariants({
                   variant: 'outline',
-                  className: 'mb-3 border-brand border'
+                  className: 'mb-3 border-gray border'
                 })
               )}
             >
@@ -386,6 +392,6 @@ export default function Home() {
           </div>
         </AspectRatio>
       </SectionContainer>
-    </main>
+    </>
   );
 }

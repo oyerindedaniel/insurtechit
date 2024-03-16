@@ -11,14 +11,14 @@ const SiteFooter = () => {
           {SOCIAL_MEDIA_LINKS.map((link) => {
             const Icon = link.icon;
             return (
-              <div
+              <li
                 key={link.name}
                 className="rounded-full p-1 backdrop-blur-[2px] bg-[#DFEFFE]/15 text-white"
               >
                 <a href={link.link} target="_blank">
                   <Icon />
                 </a>
-              </div>
+              </li>
             );
           })}
         </ul>

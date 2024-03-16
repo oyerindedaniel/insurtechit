@@ -35,16 +35,19 @@ export const OurStats = [
   {
     prefix: '$',
     figure: 50,
+    figureAbout: 'million',
     about: 'Processed Transactions'
   },
   {
     prefix: '',
     figure: 100,
+    figureAbout: 'million',
     about: 'Transaction Counts'
   },
   {
     prefix: '',
     figure: 5,
+    figureAbout: 'million',
     about: 'Unique Customer Interactions'
   }
 ] as const;
