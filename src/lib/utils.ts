@@ -1,4 +1,4 @@
-import { cloudName } from '@/config';
+import { cloudName, siteUrl } from '@/config';
 import { ImageTypes } from '@/types';
 import buildUrl, { extractPublicId, setConfig } from 'cloudinary-build-url';
 import { clsx, type ClassValue } from 'clsx';
@@ -6,6 +6,10 @@ import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
+}
+
+export function absoluteUrl(path: string) {
+  return `${siteUrl}${path}`;
 }
 
 setConfig({

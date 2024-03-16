@@ -19,8 +19,6 @@ interface OfferingProps {
 const OFFERING_WIDTH = 363;
 const GAP = 16;
 
-console.log(OFFERING_WIDTH);
-
 const Offering: React.FC<OfferingProps> = ({
   title,
   content,

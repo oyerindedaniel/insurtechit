@@ -2,6 +2,8 @@ import { Keys } from '@/types';
 
 export const localStorageName = 'insurtechit';
 
+export const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://insurtechit.vercel.app';
+
 export const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dqm7wwe4d';
 
 export const Colors: Record<Keys, string> & { [key: string]: string } = {
