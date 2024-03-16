@@ -23,7 +23,7 @@ const Stats: React.FC<StatsProps> = ({ figure, about, prefix, figureAbout }) => 
         </CountUp>
         <span>{figureAbout}</span>
       </div>
-      {about && <span className="text-xl font-semibold">{about}</span>}
+      {about && <span className="text-lg md:text-xl font-semibold">{about}</span>}
     </div>
   );
 };

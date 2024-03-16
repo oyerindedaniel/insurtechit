@@ -4,6 +4,8 @@ import { Offerings as OfferingsData } from '@/app/constants';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import { Button } from './ui/button';
 import ExternalImage from './ui/external-image';
 
 interface OfferingProps {
@@ -13,6 +15,11 @@ interface OfferingProps {
   activeOfferingIdx: number;
   setActiveOfferingIdx: Dispatch<SetStateAction<number>>;
 }
+
+const OFFERING_WIDTH = 363;
+const GAP = 16;
+
+console.log(OFFERING_WIDTH);
 
 const Offering: React.FC<OfferingProps> = ({
   title,
@@ -24,7 +31,7 @@ const Offering: React.FC<OfferingProps> = ({
   return (
     <div
       className={cn(
-        'rounded-xl overflow-hidden py-6 px-5 cursor-pointer bg-[#FAFAFA]',
+        'rounded-xl w-[363px] transition-all duration-500 md:w-full overflow-hidden py-6 px-5 cursor-pointer bg-[#FAFAFA]',
         activeOfferingIdx === index && 'bg-brand border-[1.5px] border-[#FFCB01] text-white'
       )}
       onClick={() => setActiveOfferingIdx(index)}
@@ -38,18 +45,34 @@ const Offering: React.FC<OfferingProps> = ({
 const Offerings = () => {
   const [activeOfferingIdx, setActiveOfferingIdx] = useState(0);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setActiveOfferingIdx((prevIdx) => (prevIdx + 1) % OfferingsData.length);
-  //   }, 5000);
+  const handleForwardButtonClick = () => {
+    setActiveOfferingIdx((prevIdx) => (prevIdx + 1) % OfferingsData.length);
+  };
 
-  //   return () => clearInterval(interval);
-  // }, []);
+  const handleBackwardButtonClick = () => {
+    setActiveOfferingIdx((prevIdx) => (prevIdx - 1 + OfferingsData.length) % OfferingsData.length);
+  };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleForwardButtonClick();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <div className="flex flex-col md:flex-row gap-6">
-      <div className="md:w-2/4 overflow-auto">
-        <div className="flex w-[1500px] md:w-full flex-row md:flex-col gap-4">
+    <div className="flex flex-col md:flex-row md:gap-6">
+      <div className="md:w-2/4 overflow-auto mb-2">
+        <div className="offerings flex transition-all duration-500 w-[1500px] md:transform-none md:w-full flex-row md:flex-col gap-4">
+          <style>
+            {`
+          @media (max-width: 768px) {
+            .offerings {
+              transform: translateX(-${(OFFERING_WIDTH + GAP) * activeOfferingIdx}px);
+            }
+          }
+        `}
+          </style>
           {OfferingsData.map((offering, idx) => (
             <Offering
               key={idx}
@@ -61,6 +84,26 @@ const Offerings = () => {
             />
           ))}
         </div>
+      </div>
+      <div className="w-full flex items-center justify-center gap-3 md:hidden mb-5">
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          onClick={handleBackwardButtonClick}
+          className="border-2 border-brand"
+        >
+          <MdKeyboardDoubleArrowLeft size="24px" fill="#2E3387" />
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className="border-2 border-brand"
+          onClick={handleForwardButtonClick}
+        >
+          <MdKeyboardDoubleArrowRight size="24px" fill="#2E3387" />
+        </Button>
       </div>
       <AnimatePresence mode="wait">
         <motion.div

@@ -22,9 +22,7 @@ export default function Home() {
 
   const sectionRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
 
-  const [trackNavBarIntersection, setTrackNavBarIntersection] = useState({
-    header: false
-  });
+  const [trackNavBarIntersection, setTrackNavBarIntersection] = useState({});
 
   const NAVBAR_HEIGHT = '70.28';
 
@@ -64,7 +62,7 @@ export default function Home() {
       rootMargin: `-${NAVBAR_HEIGHT}px`
     });
     if (sectionRefs?.current) {
-      sectionRefs.current.forEach((section: any) => {
+      sectionRefs.current.forEach((section: HTMLElement) => {
         observer.observe(section);
       });
     }
