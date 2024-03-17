@@ -60,8 +60,8 @@ const Offerings = () => {
   }, [activeOfferingIdx]);
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-6 md:items-center">
-      <div className="md:w-2/4 overflow-hidden mb-2">
+    <div className="flex flex-col md:flex-row md:gap-6">
+      <div className="md:w-2/4 overflow-hidden mb-3 md:mb-0">
         <div className="offerings flex transition-all duration-500 w-[1500px] md:transform-none md:w-full flex-row md:flex-col gap-4">
           <style>
             {`
