@@ -9,21 +9,18 @@ export interface ContextState {
 
 export type ContextAction =
   | {
-      type: "TOGGLE_SIDEBAR";
+      type: 'TOGGLE_SIDEBAR';
       payload: boolean;
     }
   | {
-      type: "SET_SIDEBAR";
+      type: 'SET_SIDEBAR';
       payload: boolean;
     }
   | {
-      type: "SET_NAVBAR-COLOR";
+      type: 'SET_NAVBAR-COLOR';
       payload: { color: string };
     };
 
 export type ContextDispatch = (action: ContextAction) => void;
 
-export type ContextReducer = (
-  state: ContextState,
-  action: ContextAction
-) => ContextState;
+export type ContextReducer = (state: ContextState, action: ContextAction) => ContextState;

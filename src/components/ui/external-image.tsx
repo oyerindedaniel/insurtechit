@@ -32,7 +32,6 @@ const ExternalImage: FC<ExternalImageProps> = ({
       alt={alt}
       placeholder="blur"
       className={cn('', objectFit || 'object-cover', className)}
-      objectFit={objectFit || 'cover'}
       blurDataURL={resizeImage(src, 'PLACEHOLDER')}
       {...rest}
     />
