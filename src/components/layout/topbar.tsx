@@ -77,8 +77,9 @@ const SiteHeader: React.FC<HeaderProps> = ({ items }) => {
             <li
               key={index}
               className={cn(
-                'text-inherit cursor-pointer relative transition-all duration-75 hover:font-semibold hover:border-b-2 hover:border-brand',
-                pathname === item.link ? 'font-semibold' : ''
+                'text-inherit cursor-pointer relative transition-all duration-75 hover:font-semibold hover:border-b-2',
+                pathname === item.link && 'font-semibold',
+                navbarColor === 'transparent' ? 'hover:border-white' : 'hover:border-brand'
               )}
             >
               <Link href={item.link}>{item.name}</Link>

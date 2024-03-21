@@ -54,7 +54,7 @@ const Offerings = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleForwardButtonClick();
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [activeOfferingIdx]);
@@ -113,14 +113,12 @@ const Offerings = () => {
           transition={{ duration: 0.5 }}
           className="w-full md:w-2/4 relative rounded-xl min-h-[500px] md:min-h-full overflow-hidden"
         >
-          {OfferingsData[activeOfferingIdx]?.image && (
-            <ExternalImage
-              src={OfferingsData[activeOfferingIdx]?.image}
-              alt=""
-              fill
-              objectFit="object-cover"
-            />
-          )}
+          <ExternalImage
+            src={OfferingsData[activeOfferingIdx]?.image}
+            alt=""
+            fill
+            objectFit="object-cover"
+          />
         </motion.div>
       </AnimatePresence>
     </div>
