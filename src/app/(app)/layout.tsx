@@ -3,7 +3,7 @@ import SiteFooter from '@/components/layout/footer';
 import SiteSidebar from '@/components/layout/sidebar';
 import SiteHeader from '@/components/layout/topbar';
 
-interface LayoutProps extends React.PropsWithChildren<{}> {}
+interface LayoutProps extends React.PropsWithChildren {}
 
 export default async function Layout({ children }: LayoutProps) {
   return (
