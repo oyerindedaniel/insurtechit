@@ -87,7 +87,7 @@ export default function Home() {
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5' }}
+              transition={{ duration: '.5', damping: 10 }}
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl leading-[1.15] sm:leading-[1.15] lg:leading-[1.15] text-center md:text-left font-poppins font-medium mb-4"
             >
@@ -96,7 +96,7 @@ export default function Home() {
             <motion.p
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5', delay: 0.5 }}
+              transition={{ duration: '.5', delay: 0.45 }}
               viewport={{ once: true }}
               className="text-md sm:text-lg mb-8 text-center md:text-left"
             >
@@ -106,7 +106,7 @@ export default function Home() {
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5', delay: 1 }}
+              transition={{ duration: '.5', delay: 0.9 }}
               viewport={{ once: true }}
               className="flex gap-4 sm:gap-6 items-center justify-center flex-col sm:flex-row md:justify-start"
             >
@@ -160,7 +160,7 @@ export default function Home() {
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: '.5', delay: 0.25 }}
+          transition={{ duration: '.5', delay: 0.35, damping: 100 }}
           viewport={{ once: true }}
           className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full"
         >
