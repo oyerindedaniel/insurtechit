@@ -110,7 +110,7 @@ const Offerings = () => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="w-full md:w-2/4 relative rounded-xl min-h-[500px] md:min-h-full overflow-hidden"
         >
           <ExternalImage

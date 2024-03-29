@@ -34,7 +34,7 @@ const SiteSidebar: React.FC<Props> = ({ items }) => {
   return (
     <aside
       className={cn(
-        'fixed top-0 right-0 w-screen h-[70vh] rounded-b-xl transition-all duration-300 md:hidden z-10 bg-white',
+        'fixed top-0 right-0 w-screen h-[70vh] rounded-b-xl transition-all duration-500 md:hidden z-10 bg-white',
         isSidebarOpen ? 'translate-y-0 opacity-1' : '-translate-y-full opacity-0'
       )}
     >
