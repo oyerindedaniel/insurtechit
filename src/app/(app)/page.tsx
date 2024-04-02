@@ -160,7 +160,7 @@ export default function Home() {
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.35, damping: 100, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, delay: 0.35, ease: 'easeInOut' }}
           viewport={{ once: true }}
           className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full"
         >
@@ -220,7 +220,7 @@ export default function Home() {
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              transition={{ duration: 0.9, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="text-lg"
             >
