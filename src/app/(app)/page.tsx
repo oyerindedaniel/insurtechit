@@ -87,7 +87,7 @@ export default function Home() {
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5', ease: 'easeInOut' }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl leading-[1.15] sm:leading-[1.15] lg:leading-[1.15] text-center md:text-left font-poppins font-medium mb-4"
             >
@@ -96,7 +96,7 @@ export default function Home() {
             <motion.p
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5', delay: 0.45, ease: 'easeInOut' }}
+              transition={{ duration: 0.5, delay: 0.5, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="text-md sm:text-lg mb-8 text-center md:text-left"
             >
@@ -106,7 +106,7 @@ export default function Home() {
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5', delay: 0.9, ease: 'easeInOut' }}
+              transition={{ duration: 0.5, delay: 1, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="flex gap-4 sm:gap-6 items-center justify-center flex-col sm:flex-row md:justify-start"
             >
@@ -130,13 +130,13 @@ export default function Home() {
           <div className="w-full md:w-[45%] z-0 relative">
             <Image
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502580/folder/hww6lttfjiwjgugzqmrx.png"
-              alt=""
+              alt="meeting canvas"
               fill
               className="absolute -z-10 translate-x-2/4 scale-125"
             />
             <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502582/folder/uflojph6wmv2ivg8w7fm.png"
-              alt="insurtechit"
+              alt="meeting"
               height={804}
               width={804}
             />
@@ -160,7 +160,7 @@ export default function Home() {
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: '.5', delay: 0.35, damping: 100, ease: 'easeInOut' }}
+          transition={{ duration: 0.5, delay: 0.35, damping: 100, ease: 'easeInOut' }}
           viewport={{ once: true }}
           className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-6 md:gap-4 max-w-[1000px] mx-auto w-full"
         >
@@ -220,7 +220,7 @@ export default function Home() {
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: '.5', ease: 'easeInOut' }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="text-lg"
             >
@@ -241,7 +241,7 @@ export default function Home() {
             <div className="relative col-start-1 col-end-13 row-start-9 row-end-13 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:row-end-13 rounded-xl overflow-hidden">
               <ExternalImage
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502758/folder/hmsxwtc5krb2mjr2iv0h.png"
-                alt=""
+                alt="our story image 1"
                 fill
                 className="object-top"
               />
@@ -249,7 +249,7 @@ export default function Home() {
             <div className="relative col-start-1 col-end-13 row-start-1 row-end-5 sm:col-start-1 sm:col-end-7 sm:row-start-7 sm:row-end-13 rounded-xl overflow-hidden">
               <ExternalImage
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502527/folder/nttkxs1ss9bjvwzsazaq.png"
-                alt=""
+                alt="our story image 2"
                 fill
               />
             </div>
@@ -257,7 +257,7 @@ export default function Home() {
               {/* <AspectRatio ratio={1 / 1}> */}
               <ExternalImage
                 src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502535/folder/vrzoeqcy7ly5dd48rfw3.png"
-                alt=""
+                alt="our story image 3"
                 fill
               />
               {/* </AspectRatio> */}
@@ -281,7 +281,7 @@ export default function Home() {
           <div className="w-full h-[375px] md:w-2/4 relative">
             <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502525/folder/oub1ooc5wkrf7ahcfxuh.png"
-              alt=""
+              alt="our vision image"
               fill
             />
           </div>
@@ -361,7 +361,7 @@ export default function Home() {
           <div className="w-full h-[300px] md:w-2/4 relative">
             <ExternalImage
               src="https://res.cloudinary.com/dqm7wwe4d/image/upload/v1710502550/folder/pr76auuuyd5mfe9lmli2.png"
-              alt=""
+              alt="contact us image"
               fill
               objectFit="object-cover"
             />

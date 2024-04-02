@@ -1,7 +1,7 @@
 import { siteUrl } from '@/config';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { fontInter, fontPoppins } from './font';
 import './globals.css';
 import { Providers } from './providers';
@@ -30,14 +30,8 @@ export const metadata: Metadata = {
       {
         url: `${siteConfig.url}/opengraph-image.png`,
         alt: `${siteConfig.name}`,
-        width: '800',
-        height: '600'
-      },
-      {
-        url: `${siteConfig.url}/opengraph-image.png`,
-        alt: `${siteConfig.name}`,
-        width: '1800',
-        height: '1600'
+        width: '1885',
+        height: '871'
       }
     ],
     description: siteConfig.description,
@@ -46,6 +40,11 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico'
   }
+};
+
+export const viewport: Viewport = {
+  colorScheme: 'light',
+  themeColor: [{ media: '(prefers-color-scheme: light)', color: 'white' }]
 };
 
 export default function RootLayout({

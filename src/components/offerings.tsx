@@ -115,7 +115,7 @@ const Offerings = () => {
         >
           <ExternalImage
             src={OfferingsData[activeOfferingIdx]?.image}
-            alt=""
+            alt={OfferingsData[activeOfferingIdx]?.title}
             fill
             objectFit="object-cover"
           />

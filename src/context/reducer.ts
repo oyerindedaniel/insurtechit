@@ -34,6 +34,16 @@ const reducer: ContextReducer = (state, action) => {
       };
       break;
     }
+    case 'SET_ACTIVE-OFFERING-INDEX': {
+      newState = {
+        ...state,
+        UI: {
+          ...state.UI,
+          activeOfferingIdx: 0
+        }
+      };
+      break;
+    }
     default:
       throw new Error(`No such type`);
   }
